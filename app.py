@@ -9,7 +9,7 @@ app.secret_key = "secret123"
 
 # ========== 1. API KEY SETUP ==========
 
-client = genai.Client(api_key="AQ.Ab8RN6IQeC36S1pDO-5CiPEfg7oVg-9pdInWW2qf69MAzMY0CA")
+client = genai.Client(api_key="AQ.Ab8RN6IQeC36S1pDO-5CiPEfg7oVg-9pdInWW2qf69MAzMY0CAm")
 # ========== 2. DATABASE SETUP ==========
 conn = sqlite3.connect('college.db', check_same_thread=False)
 c = conn.cursor()
