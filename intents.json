@@ -1,0 +1,79 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good evening"
+      ],
+      "responses": [
+        "Hello! Welcome to Student Support Chatbot.",
+        "Hi! How can I help you today?",
+        "Hello! Ask me anything about college."
+      ]
+    },
+    {
+      "tag": "attendance",
+      "patterns": [
+        "attendance",
+        "my attendance",
+        "attendance percentage"
+      ],
+      "responses": [
+        "Please check your attendance from the student portal.",
+        "Your attendance details are available on the college portal."
+      ]
+    },
+    {
+      "tag": "exam",
+      "patterns": [
+        "exam",
+        "exam date",
+        "schedule"
+      ],
+      "responses": [
+        "The exam schedule will be announced by the college.",
+        "Please check the notice board or college website for exam dates."
+      ]
+    },
+    {
+      "tag": "fees",
+      "patterns": [
+        "fees",
+        "fee payment",
+        "college fees"
+      ],
+      "responses": [
+        "You can pay your fees through the college portal.",
+        "Please contact the accounts department for fee-related queries."
+      ]
+    },
+    {
+      "tag": "library",
+      "patterns": [
+        "library",
+        "books",
+        "book issue"
+      ],
+      "responses": [
+        "The library is open from 9:00 AM to 5:00 PM.",
+        "You can issue books using your student ID."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you"
+      ],
+      "responses": [
+        "Goodbye! Have a great day.",
+        "Take care! Visit again."
+      ]
+    }
+  ]
+}

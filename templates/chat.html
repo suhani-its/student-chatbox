@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Chatbot</title>
+    <style>
+        body {font-family: Arial; background: #f0f2f5;}
+        .chatbox {width: 400px; margin: 50px auto; background: white; padding: 20px; border-radius: 10px;}
+        #messages {height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background:#fafafa;}
+        input {width: 70%; padding: 10px;}
+        button {width: 25%; padding: 10px; background: #007bff; color: white; border: none;}
+        .user {text-align:right; color:blue;}
+        .bot {text-align:left; color:green;}
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <h2>🤖 College Support Bot</h2>
+        <div id="messages"></div>
+        <input type="text" id="message" placeholder="Kuch pucho...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let msg = document.getElementById('message').value;
+            if(msg == '') return;
+            
+            document.getElementById('messages').innerHTML += "<p class='user'><b>Tum:</b> " + msg + "</p>";
+            document.getElementById('message').value = '';
+
+            let formData = new FormData();
+            formData.append('message', msg);
+
+            fetch('/get', {method: 'POST', body: formData})
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('messages').innerHTML += "<p class='bot'><b>Bot:</b> " + data.reply + "</p>";
+            })
+            .catch(err => {
+                document.getElementById('messages').innerHTML += "<p class='bot'><b>Bot:</b> Error aa gaya</p>";
+            });
+        }
+    </script>
+</body>
+</html>

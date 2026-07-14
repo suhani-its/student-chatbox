@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Support Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Student Support Chatbot</h1>
+        <div id="chat-box"></div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your question...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function sendMessage() {
+            let message = $("#user-input").val().trim();
+            if (message === "") {
+                return;
+            }
+            $("#chat-box").append("<div class='user'><b>You:</b> " + message + "</div>");
+           $.post("/get", { msg: message }, function(data) { 
+    $("#chat-box").append("<div class='bot'><b>Bot:</b> " + data.reply + "</div>");
+    $("#user-input").val("");
+    $("#chat-box").scrollTop($("#chat-box")[0].scrollHeight);
+});
+        }
+    
+        $("#user-input").keypress(function(event) {
+            if (event.which === 13) {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
